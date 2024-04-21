@@ -2,6 +2,14 @@
 
 <a href="{{ route('supports.index') }}">Voltar</a>
 
+@if ($errors->any())
+<ul>
+  @foreach ($errors->all() as $error)
+  <li>{{ $error }}</li>
+  @endforeach
+</ul>
+@endif
+
 <form action="{{ route('supports.update', $support->id) }}" method="POST">
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <input type="hidden" name="_method" value="PUT">
