@@ -11,13 +11,12 @@ class SupportController extends Controller
 {
     public function index(Support $support)
     {
-        $supports = $support->validated();
+        $supports = $support->all();
+
         // dd($supports);
 
         return view('admin/supports/index', compact('supports'));
     }
-
-
 
     public function create()
     {
@@ -61,7 +60,7 @@ class SupportController extends Controller
             return back();
         }
 
-        $support->update($request->validated());
+        $support->update($request)->validated();
 
         return redirect()->route('supports.index');
     }
