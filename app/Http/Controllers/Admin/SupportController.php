@@ -11,7 +11,7 @@ class SupportController extends Controller
 {
     public function index(Support $support)
     {
-        $supports = $support->all();
+        $supports = $support->validated();
         // dd($supports);
 
         return view('admin/supports/index', compact('supports'));
@@ -61,7 +61,7 @@ class SupportController extends Controller
             return back();
         }
 
-        $support->update($request->only(['subject', 'body']));
+        $support->update($request->validated());
 
         return redirect()->route('supports.index');
     }
