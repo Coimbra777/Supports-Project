@@ -11,9 +11,11 @@
 @endif
 
 <form action="{{ route('supports.update', $support->id) }}" method="POST">
-  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-  <input type="hidden" name="_method" value="PUT">
-  <input type=" text" placeholder="Assunto" name="subject" value="{{ $support->subject }}">
-  <textarea name="body" id="" cols="30" rows="10" placeholder="Descrição">{{ $support->body }}</textarea>
-  <button type="submit">Enviar</button>
+  @csrf
+  @method('PUT')
+  @include('admin.supports.partials.form', [
+  'support' => $support
+  ])
+
+
 </form>
