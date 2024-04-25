@@ -18,7 +18,7 @@ class CreateSupportDTO
   {
     return new self(
       $request->subject,
-      $request->status,
+      'a',
       $request->body
     );
   }

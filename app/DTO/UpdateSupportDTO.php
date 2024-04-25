@@ -5,7 +5,7 @@ namespace App\DTO;
 use App\Http\Requests\StoreUpdateSupport;
 
 
-class CreateSupportDTO
+class UpdateSupportDTO
 {
   public function __construct(
     public string $id,
